@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Snake Game</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <div class="screen">
+    <div class="container">
+      <div class="row my-2">
+        <div class="lelels bg-dark py-2 px-2 rounded">
+          <h2 class="text-center text-white">Levels</h2>
+          <button class="btn btn-lg btn-success border-dark" id="easy">Easy</button>
+          <button class="btn btn-primary border-dark" id="medium">Medium</button>
+          <button class="btn btn-danger border-dark" id="hard">Hard</button>
+        </div>
+        <div class="score">
+          <h2 class="text-white" id="scoreBox">Score : 0</h2>
+          <h2 class="text-white" id="hiScoreBox">HighScore : 0</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div id="board"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
