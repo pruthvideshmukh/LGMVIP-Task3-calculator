@@ -75,6 +75,7 @@ function gaming() {
         snakeArr = [{ x: 13, y: 15 }];
         musicSound.play();
         score = 0;
+        scoreBox.innerHTML = "Score : 0";
     }
 
     // If snake ate the food then increase the score and regenerate the food
@@ -85,7 +86,7 @@ function gaming() {
         if (score > hiScoreVal) {
             hiScoreVal = score;
             localStorage.setItem("hiScore", JSON.stringify(hiScoreVal));
-            hiScoreBox.innerHTML = "HiScore : " + hiScoreVal;
+            hiScoreBox.innerHTML = "HighScore : " + hiScoreVal;
         }
 
         scoreBox.innerHTML = "Score : " + score;
@@ -139,24 +140,20 @@ if (hiScore === null) {
     hiScoreVal = 0;
     localStorage.setItem("hiScore", JSON.stringify(hiScoreVal));
 }
-else{
+else {
     hiScoreVal = JSON.parse(hiScore);
     hiScoreBox.innerHTML = "HighScore : " + hiScore;
 }
 
 window.requestAnimationFrame(main);
-window.addEventListener("keydown", e =>  {
+window.addEventListener("keydown", e => {
     inputDir = { x: 0, y: 1 };
     moveSound.play();
+
     switch (e.key) {
         case "ArrowUp":
             inputDir.x = 0;
             inputDir.y = -1;
-            break;
-
-        case "ArrowDown":
-            inputDir.x = 0;
-            inputDir.y = 1;
             break;
 
         case "ArrowLeft":
@@ -164,10 +161,14 @@ window.addEventListener("keydown", e =>  {
             inputDir.y = 0;
             break;
 
-
         case "ArrowRight":
             inputDir.x = 1;
             inputDir.y = 0;
+            break;
+
+        case "ArrowDown":
+            inputDir.x = 0;
+            inputDir.y = 1;
             break;
 
         default:
@@ -198,4 +199,19 @@ right.addEventListener("click", function () {
 down.addEventListener("click", function () {
     inputDir.x = 0;
     inputDir.y = 1;
+});
+
+let songOn = document.getElementById("songOn");
+let songOff = document.getElementById("songOff");
+
+songOn.addEventListener("click", function () {
+    musicSound.play();
+    songOn.classList.add("btn-lg");
+    songOff.classList.remove("btn-lg");
+});
+
+songOff.addEventListener("click", function () {
+    musicSound.pause();
+    songOff.classList.add("btn-lg");
+    songOn.classList.remove("btn-lg");
 });
